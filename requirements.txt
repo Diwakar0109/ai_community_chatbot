@@ -1,0 +1,23 @@
+# FastAPI web server
+fastapi
+uvicorn[standard]
+
+# Environment variable management
+python-dotenv
+
+# LangChain core and community libraries
+langchain
+langchain-community
+
+# LLM and Embedding Model integrations
+langchain-groq
+langchain-cohere
+
+# Vector Store (FAISS) - use faiss-gpu if you have a compatible NVIDIA GPU
+faiss-cpu
+
+# Document Parsers (even though uploads are removed, the functions might be reused later)
+pypdf
+python-docx
+pandas
+openpyxl
