@@ -1,42 +1,57 @@
-# Innovatech Solutions Company Information
+Real-time People Tracking and Analytics
+Overview
+This project is a fully developed real-time people analytics system deployed at Sankara Hospital, Coimbatore. It is designed to monitor and analyze human movement patterns across multiple camera streams. The solution provides actionable insights for crowd management, occupancy analysis, and operational decision-making.
+The system is optimized for edge devices, enabling fast processing without the need for heavy central servers. It supports multiple cameras simultaneously and provides a scalable solution for monitoring large areas in real-time.
+Objectives
+To monitor and analyze people movement in real-time.
 
-## About Us
-Innovatech Solutions is a leading provider of cloud-based productivity software. Founded in 2015, our mission is to streamline workflows for businesses of all sizes. Our headquarters are in San Francisco, California.
 
-## Our Products
-We offer a suite of three main products:
-* **SynthWave AI**: An AI-powered data analysis tool that helps businesses visualize complex datasets and make informed decisions. It can process CSV, JSON, and Excel files.
-* **ConnectSphere**: A project management platform designed for remote teams. Key features include task tracking, real-time collaboration, and integrated video conferencing.
-* **Guardian Shield**: A cybersecurity solution that provides real-time threat detection, endpoint protection, and automated incident response for small to medium-sized businesses.
+To provide actionable insights to hospital management for crowd and space utilization.
 
-## Support Policy
-### Support Hours
-Our technical support team is available from **9:00 AM to 5:00 PM Pacific Time (PT)**, Monday through Friday.
 
-### Contacting Support
-* **Standard Support**: Customers can submit a ticket through our online portal at innovatech.support.com. The target response time is 24 hours.
-* **Premium Support**: Customers with a premium subscription can access live chat support and have a dedicated account manager. The target response time for premium support is 2 hours.
+To reduce manual monitoring and improve efficiency in tracking occupancy trends.
 
-## Employee Work Policy
-### Remote Work
-Innovatech Solutions operates on a hybrid model. Employees are expected to be in the office on Tuesdays and Thursdays. Work from home is permitted on Monday, Wednesday, and Friday. All employees must be available online during core business hours (10 AM - 4 PM PT) regardless of their location.
 
-### Vacation Policy
-* **Full-time employees**: Receive 20 days of Paid Time Off (PTO) per year.
-* **Part-time employees**: Accrue PTO based on the number of hours worked.
-* **Requesting Time Off**: All vacation requests must be submitted through the company's HR portal at least two weeks in advance.```
+To deploy a lightweight, scalable solution that can run on edge devices for real-time performance.
 
----
 
-### 3. `.env` File
+Key Features
+Real-Time People Analytics: The system monitors multiple camera streams and generates live insights on crowd density and movement patterns.
 
-This file stores your secret API keys. Create a file named `.env` in your `backend/` directory. **Remember to never commit this file to a public repository like GitHub.**
 
-```env
-# Groq API Key
-# Get this from: https://console.groq.com/keys
-GROQ_API_KEY="your_groq_api_key_goes_here"
+Automated Logging & Reporting: Records occupancy trends and produces reports for management to optimize operations.
 
-# Cohere API Key
-# Get this from: https://dashboard.cohere.com/api-keys
-COHERE_API_KEY="your_cohere_api_key_goes_here"
+
+Multi-Camera Scalability: Can handle multiple streams simultaneously for larger areas without performance degradation.
+
+
+Edge Deployment: Optimized to run on edge devices, reducing latency and dependency on central servers.
+
+
+User-Friendly Interface: Simple dashboard to visualize insights and analytics.
+
+
+
+Impact & Benefits
+Improved Operational Efficiency: Reduces the need for manual observation of crowded areas.
+
+
+Actionable Insights: Provides hospital management with data-driven insights for better crowd and resource management.
+
+
+Scalable Solution: Easily expandable to additional cameras or hospital wings.
+
+
+Real-Time Monitoring: Immediate updates on occupancy trends, enabling faster decision-making.
+
+
+Deployment Details
+Location: Sankara Hospital, Coimbatore
+
+
+Use Case: Real-time people monitoring for crowd management, space optimization, and operational insights.
+
+
+
+Summary
+This project demonstrates the implementation of a real-time people analytics solution for monitoring human movement and occupancy. It delivers actionable insights, improves operational efficiency, and is designed to run on edge devices for low-latency performance, making it suitable for large-scale deployments in hospitals, campuses, or public spaces.
