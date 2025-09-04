@@ -26,7 +26,7 @@ app = FastAPI(
 
 # --- CORS CONFIGURATION ---
 allowed_origins = [
-    "https://ai-community-eight.vercel.app",
+    "https://bit-ai-community.vercel.app",
     "http://127.0.0.1:5500",
     "http://localhost:5500",
     "http://localhost:3000",
