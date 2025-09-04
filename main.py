@@ -21,13 +21,15 @@ load_dotenv()
 app = FastAPI(
     title="AI Chatbot Backend",
     description="Backend for a RAG chatbot with a strict, fixed knowledge base.",
-    version="2.3.0" # Version updated for strict mode
+    version="2.4.0" # Version updated for improved prompt
 )
 
 # --- CORS CONFIGURATION ---
 allowed_origins = [
-        "https://ai-community-eight.vercel.app"
-
+    "https://ai-community-eight.vercel.app",
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
@@ -41,19 +43,15 @@ app.add_middleware(
 # --- Global Variables & Constants ---
 COHERE_EMBED_MODEL = "embed-english-light-v3.0"
 embeddings = None
-inbuilt_vector_store = None # Will hold the single, global knowledge base
+inbuilt_vector_store = None
 sessions: Dict[str, Dict] = {}
 
 
 @app.on_event("startup")
 async def startup_event():
-    """
-    Initializes the Cohere embeddings model and loads the inbuilt knowledge base.
-    """
     print("--- Application Startup ---")
     global embeddings, inbuilt_vector_store
     
-    # 1. Initialize Cohere embeddings
     print(f"Initializing Cohere embeddings model ('{COHERE_EMBED_MODEL}')...")
     try:
         cohere_api_key = os.getenv("COHERE_API_KEY")
@@ -66,13 +64,12 @@ async def startup_event():
     except Exception as e:
         raise RuntimeError("Application startup failed: Embeddings could not be loaded.") from e
 
-    # 2. Load and process the inbuilt memory file
     print("Loading inbuilt memory from 'inbuilt_memory.txt'...")
     try:
         inbuilt_memory_path = os.path.join(os.path.dirname(__file__), 'inbuilt_memory.txt')
         
         if not os.path.exists(inbuilt_memory_path):
-            print(f"⚠️ WARNING: Knowledge base file not found at '{inbuilt_memory_path}'. Bot will not be able to answer questions.")
+            print(f"⚠️ WARNING: Knowledge base file not found at '{inbuilt_memory_path}'.")
             return
 
         with open(inbuilt_memory_path, "r", encoding="utf-8") as f:
@@ -84,8 +81,7 @@ async def startup_event():
             inbuilt_vector_store = FAISS.from_texts(texts=chunks, embedding=embeddings)
             print("✅ Inbuilt memory loaded and vectorized successfully.")
         else:
-            print("⚠️ WARNING: 'inbuilt_memory.txt' is empty. Bot will not have knowledge to answer questions.")
-
+            print("⚠️ WARNING: 'inbuilt_memory.txt' is empty.")
     except Exception as e:
         print(f"❌ ERROR: Could not load inbuilt memory: {e}")
         
@@ -107,18 +103,18 @@ class SessionRequest(BaseModel):
 
 # --- Helper Function ---
 def create_rag_chain(vector_store):
-    """Creates a ConversationalRetrievalChain with a very strict prompt."""
-    llm = ChatGroq(temperature=0.1, model_name="openai/gpt-oss-20b", groq_api_key=os.getenv("GROQ_API_KEY"))
+    """Creates a ConversationalRetrievalChain with an improved, smarter prompt."""
+    llm = ChatGroq(temperature=0.1, model_name="llama3-8b-8192", groq_api_key=os.getenv("GROQ_API_KEY"))
 
-    # THIS IS THE MOST IMPORTANT CHANGE. This prompt forbids external knowledge.
+    # --- UPDATED AND IMPROVED PROMPT ---
     prompt_template = """
-    You are a specialized AI assistant. Your ONLY job is to answer questions based STRICTLY on the context provided below.
+    You are a specialized AI assistant. You must follow these rules in order:
 
-    Follow these rules without exception:
-    1. Analyze the user's question.
-    2. If the provided 'Context' contains the information to answer the question, formulate a clear answer using ONLY that information.
-    3. If the 'Context' does NOT contain the answer, you MUST respond with the exact phrase: "The answer to your question is not in my knowledge base."
-    4. DO NOT use any external knowledge. DO NOT make up information. Your knowledge is 100% limited to the text in the 'Context'.
+    1.  **Check for Greetings**: If the user's question is a simple greeting like "hello", "hi", or "hii", respond with a friendly greeting and ask how you can help. Do not proceed to the next rules.
+    2.  **Use Context for Answers**: Analyze the user's question. If the provided 'Context' contains the information to answer the question, you MUST use ONLY that information.
+    3.  **Format Your Answers**: When answering from the context, structure your response clearly. If the answer involves a list, ALWAYS use Markdown bullet points (*).
+    4.  **Handle Unknown Questions**: If the 'Context' does NOT contain the answer to the question, you MUST respond with the exact phrase: "The answer to your question is not in my knowledge base."
+    5.  **Be Strict**: Do not use any external knowledge. Do not make up information. Your knowledge is 100% limited to the text in the 'Context'.
     
     Context: {context}
     
@@ -148,11 +144,9 @@ async def chat_with_bot(request: ChatRequest):
     if not request.session_id:
         raise HTTPException(status_code=400, detail="Session ID is missing.")
 
-    # --- Step 1: Handle simple greetings separately ---
-    if re.search(r"^\s*(hi|hello|hey|good morning|good afternoon)\s*$", request.question, re.IGNORECASE):
-        return ChatResponse(answer="Hello! How can I help you with the information I have?")
+    # --- REMOVED GREETING CHECK: The new prompt handles this automatically ---
 
-    # --- Step 2: Handle meta-questions ---
+    # --- Handle meta-questions ---
     history_question_pattern = r"(what was|what's|what is)\s+(my|the)\s+(last|previous)\s+question|my\s+previous\s+question"
     if re.search(history_question_pattern, request.question, re.IGNORECASE):
         if request.chat_history:
@@ -161,19 +155,16 @@ async def chat_with_bot(request: ChatRequest):
         else:
             return ChatResponse(answer="You haven't asked any questions before this one.")
 
-    # --- Step 3: Process all other questions through the strict RAG chain ---
+    # --- Process all questions through the strict RAG chain ---
     try:
-        # Check if the knowledge base was loaded successfully on startup
         if not inbuilt_vector_store:
             return ChatResponse(answer="I'm sorry, my knowledge base is not available. Please contact the administrator.")
 
-        # Create a RAG chain for the session if it's the first message
         if request.session_id not in sessions:
             sessions[request.session_id] = {
                 "rag_chain": create_rag_chain(inbuilt_vector_store)
             }
         
-        # Use the RAG chain to get a response based ONLY on the inbuilt text file
         session = sessions[request.session_id]
         result = session["rag_chain"].invoke({
             "question": request.question,
@@ -189,5 +180,4 @@ async def chat_with_bot(request: ChatRequest):
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 8000))
-    # reload=False is recommended when using startup events to avoid re-running them
     uvicorn.run("backend.main:app", host="0.0.0.0", port=port, reload=False)
