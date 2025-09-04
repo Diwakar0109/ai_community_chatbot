@@ -26,9 +26,8 @@ app = FastAPI(
 
 # --- CORS CONFIGURATION ---
 allowed_origins = [
-    "https://document-chatbot-kambaa.vercel.app", # Your production frontend
-    "http://127.0.0.1:5500",                   # Your local "Live Server"
-    "http://localhost:5500",                  # Also good to have for local dev
+    "https://ai-community-gray.vercel.app/", # Your production frontend
+
 ]
 
 app.add_middleware(
