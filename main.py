@@ -108,7 +108,7 @@ class SessionRequest(BaseModel):
 # --- Helper Function ---
 def create_rag_chain(vector_store):
     """Creates a ConversationalRetrievalChain with a very strict prompt."""
-    llm = ChatGroq(temperature=0.1, model_name="llama3-8b-8192", groq_api_key=os.getenv("GROQ_API_KEY"))
+    llm = ChatGroq(temperature=0.1, model_name="openai/gpt-oss-20b", groq_api_key=os.getenv("GROQ_API_KEY"))
 
     # THIS IS THE MOST IMPORTANT CHANGE. This prompt forbids external knowledge.
     prompt_template = """
