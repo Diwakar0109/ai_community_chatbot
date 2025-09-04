@@ -1,4 +1,4 @@
-Real-time People Tracking and Analytics
+1-Real-time People Tracking and Analytics
 Overview
 This project is a fully developed real-time people analytics system deployed at Sankara Hospital, Coimbatore. It is designed to monitor and analyze human movement patterns across multiple camera streams. The solution provides actionable insights for crowd management, occupancy analysis, and operational decision-making.
 The system is optimized for edge devices, enabling fast processing without the need for heavy central servers. It supports multiple cameras simultaneously and provides a scalable solution for monitoring large areas in real-time.
@@ -55,3 +55,183 @@ Use Case: Real-time people monitoring for crowd management, space optimization, 
 
 Summary
 This project demonstrates the implementation of a real-time people analytics solution for monitoring human movement and occupancy. It delivers actionable insights, improves operational efficiency, and is designed to run on edge devices for low-latency performance, making it suitable for large-scale deployments in hospitals, campuses, or public spaces.
+
+
+
+
+2-Real-time People Counting System
+Overview
+This project is a fully developed real-time people counting solution deployed at CODISSIA, Coimbatore. Leveraging computer vision and NVIDIA DeepStream, the system provides accurate occupancy monitoring and automated people counting across multiple live camera streams. It is optimized for edge device deployment, ensuring low-latency and scalable performance in diverse environments.
+The system helps organizations monitor footfall, track occupancy trends, and optimize space usage efficiently.
+Objectives
+To deliver real-time people counting with high accuracy.
+
+
+To monitor occupancy and track entry/exit trends across multiple areas.
+
+
+To provide actionable insights for facility management and crowd control.
+
+
+To deploy a scalable, low-latency solution optimized for edge devices such as Jetson Orin Nano, Jetson AGX Orin, and Jetson Thor series.
+
+
+Key Features
+Accurate People Counting: Detects and counts individuals across single or multiple camera streams.
+
+
+Occupancy Monitoring: Provides live updates on occupancy and entry/exit patterns.
+
+
+Automated Reporting: Logs and generates reports for footfall and utilization trends.
+
+
+Edge Optimization: Ensures smooth performance on edge devices for real-time processing.
+
+
+Scalability: Supports deployments ranging from single-camera setups to enterprise-grade multi-camera networks.
+
+
+
+Impact & Benefits
+Actionable Insights: Enables organizations to optimize space usage and manage crowds efficiently.
+
+
+Operational Efficiency: Reduces reliance on manual monitoring while increasing counting accuracy.
+
+
+Scalable Deployment: Flexible system design suitable for small and large-scale setups.
+
+
+Real-Time Decision Making: Provides immediate access to occupancy trends for better operational control.
+
+
+Deployment Details
+Location: CODISSIA, Coimbatore
+
+
+Use Case: Real-time people counting and occupancy monitoring for events, exhibitions, and facility management.
+
+
+Summary
+This project demonstrates a real-time people counting system combining computer vision with edge-optimized performance. It delivers scalable, low-latency, and actionable insights to improve operational efficiency and facility management, making it suitable for event centers, exhibitions, and large public spaces.
+
+
+3 - Real-time Vehicle Counting and Monitoring System
+Overview
+This project delivers a real-time vehicle counting and monitoring solution designed for traffic and parking analytics. Using computer vision integrated with NVIDIA DeepStream, the system ensures accurate and efficient detection of vehicles across multiple live video streams. It is optimized for edge devices, allowing for scalable and low-latency performance without heavy reliance on cloud infrastructure.
+The system captures key traffic metrics such as vehicle flow, density, and occupancy patterns, supporting smarter decision-making for traffic management, parking optimization, and urban planning.
+Objectives
+To accurately detect and count vehicles in real-time across multiple camera feeds.
+
+
+To provide live insights into traffic density and flow patterns.
+
+
+To monitor parking space usage and occupancy.
+
+
+To ensure low-latency, scalable deployment on resource-efficient edge devices.
+
+
+Key Features
+Real-time Vehicle Counting: Detects and counts vehicles across single and multiple streams.
+
+
+Traffic Flow Monitoring: Tracks vehicle density, direction, and movement patterns.
+
+
+Parking Occupancy Insights: Monitors parking usage to optimize space allocation.
+
+
+Automated Data Logging: Records traffic and parking metrics with trend analysis.
+
+
+Edge Optimization: Runs smoothly on edge hardware for real-time performance.
+
+
+Scalable Deployment: Supports deployments from single intersections to city-wide networks.
+
+
+Impact & Benefits
+Traffic Management: Enables authorities to manage congestion through live insights.
+
+
+Parking Efficiency: Improves monitoring of parking utilization and reduces manual supervision.
+
+
+Smart City Applications: Contributes to data-driven urban planning and infrastructure management.
+
+
+Operational Accuracy: Enhances vehicle monitoring accuracy while lowering costs.
+
+
+Deployment Details
+Environment: Suitable for highways, intersections, parking facilities, and urban monitoring.
+
+
+Use Cases: Traffic analytics, smart parking, vehicle flow optimization, and smart city initiatives.
+
+
+Summary
+This project demonstrates a real-time vehicle counting and monitoring system that combines computer vision with edge-optimized performance. The solution provides scalable, accurate, and actionable insights for traffic and parking management, reducing manual monitoring efforts while enabling smarter infrastructure planning. It is a key enabler for smart city ecosystems and future-ready urban mobility solutions.
+
+4 - Role-Based AI Chat System with MCP
+Overview
+This project focuses on building a role-driven AI chat system powered by MCP (Multi-Client Protocol). The system enables role-specific conversational agents for HR and Admin workflows, allowing organizations to automate queries, streamline communication, and improve operational efficiency.
+The solution supports secure login-based access, session management, and context-aware conversations, making it suitable for real-world enterprise use cases.
+Objectives
+To provide AI-powered chat assistance tailored to different organizational roles (HR, Admin).
+
+
+To enable secure, session-based interaction with context retention.
+
+
+To design a scalable system capable of handling multiple concurrent users.
+
+
+To improve efficiency by automating repetitive HR and Admin workflows.
+
+
+Key Features
+Role-Specific AI Agents: HR and Admin agents process queries differently based on role-specific tools and workflows.
+
+
+MCP Integration: Ensures robust communication between the backend and agents.
+
+
+Session Management: Tracks conversation history for continuity across user interactions.
+
+
+Secure Login Access: Implements role-based authentication for controlled access.
+
+
+Web Interface: Provides an intuitive chat and login interface for users.
+
+
+Lifecycle Management: Built-in startup and shutdown mechanism for reliable agent resource handling.
+
+
+Impact & Benefits
+Workflow Automation: Reduces manual effort for HR and Admin by providing AI-assisted responses.
+
+
+Efficiency Gains: Speeds up routine tasks, leaving staff free to focus on higher-value work.
+
+
+Scalable Solution: Capable of supporting multiple users and organizational roles simultaneously.
+
+
+Secure & Contextual: Protects sensitive role-based operations while maintaining chat history for better interactions.
+
+
+Deployment Details
+Environment: Web-based deployment with FastAPI backend and MCP-driven agent integration.
+
+
+Use Cases: HR query handling, admin support, employee interaction portals, enterprise helpdesk solutions.
+
+
+Summary
+The Role-Based AI Chat System with MCP is a secure, scalable, and intelligent conversational platform that supports role-specific automation for HR and Admin tasks. With its real-time agent communication, session management, and user-friendly web interface, the system enhances productivity while reducing manual workloads—making it a valuable solution for enterprise digital transformation.
+
