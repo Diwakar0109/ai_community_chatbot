@@ -26,7 +26,7 @@ app = FastAPI(
 
 # --- CORS CONFIGURATION ---
 allowed_origins = [
-        "https://ai-community-eight.vercel.app/"
+        "https://ai-community-eight.vercel.app"
 
 ]
 
