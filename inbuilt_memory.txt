@@ -1,0 +1,42 @@
+# Innovatech Solutions Company Information
+
+## About Us
+Innovatech Solutions is a leading provider of cloud-based productivity software. Founded in 2015, our mission is to streamline workflows for businesses of all sizes. Our headquarters are in San Francisco, California.
+
+## Our Products
+We offer a suite of three main products:
+* **SynthWave AI**: An AI-powered data analysis tool that helps businesses visualize complex datasets and make informed decisions. It can process CSV, JSON, and Excel files.
+* **ConnectSphere**: A project management platform designed for remote teams. Key features include task tracking, real-time collaboration, and integrated video conferencing.
+* **Guardian Shield**: A cybersecurity solution that provides real-time threat detection, endpoint protection, and automated incident response for small to medium-sized businesses.
+
+## Support Policy
+### Support Hours
+Our technical support team is available from **9:00 AM to 5:00 PM Pacific Time (PT)**, Monday through Friday.
+
+### Contacting Support
+* **Standard Support**: Customers can submit a ticket through our online portal at innovatech.support.com. The target response time is 24 hours.
+* **Premium Support**: Customers with a premium subscription can access live chat support and have a dedicated account manager. The target response time for premium support is 2 hours.
+
+## Employee Work Policy
+### Remote Work
+Innovatech Solutions operates on a hybrid model. Employees are expected to be in the office on Tuesdays and Thursdays. Work from home is permitted on Monday, Wednesday, and Friday. All employees must be available online during core business hours (10 AM - 4 PM PT) regardless of their location.
+
+### Vacation Policy
+* **Full-time employees**: Receive 20 days of Paid Time Off (PTO) per year.
+* **Part-time employees**: Accrue PTO based on the number of hours worked.
+* **Requesting Time Off**: All vacation requests must be submitted through the company's HR portal at least two weeks in advance.```
+
+---
+
+### 3. `.env` File
+
+This file stores your secret API keys. Create a file named `.env` in your `backend/` directory. **Remember to never commit this file to a public repository like GitHub.**
+
+```env
+# Groq API Key
+# Get this from: https://console.groq.com/keys
+GROQ_API_KEY="your_groq_api_key_goes_here"
+
+# Cohere API Key
+# Get this from: https://dashboard.cohere.com/api-keys
+COHERE_API_KEY="your_cohere_api_key_goes_here"
