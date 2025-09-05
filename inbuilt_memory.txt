@@ -176,7 +176,7 @@ Use Cases: Traffic analytics, smart parking, vehicle flow optimization, and smar
 Summary
 This project demonstrates a real-time vehicle counting and monitoring system that combines computer vision with edge-optimized performance. The solution provides scalable, accurate, and actionable insights for traffic and parking management, reducing manual monitoring efforts while enabling smarter infrastructure planning. It is a key enabler for smart city ecosystems and future-ready urban mobility solutions.
 
-4 - Role-Based AI Chat System with MCP
+4-Role-Based AI Chat System with MCP
 Overview
 This project focuses on building a role-driven AI chat system powered by MCP (Multi-Client Protocol). The system enables role-specific conversational agents for HR and Admin workflows, allowing organizations to automate queries, streamline communication, and improve operational efficiency.
 The solution supports secure login-based access, session management, and context-aware conversations, making it suitable for real-world enterprise use cases.
